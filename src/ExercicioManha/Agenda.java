@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Agenda{
 
-    List<Pessoa> listaDePessoas;
+    private List<Pessoa> listaDePessoas;
 
 
     public Agenda(List<Pessoa> listaDePessoas) {
@@ -22,8 +22,12 @@ public class Agenda{
     }
 
     //metódo remover pessoa da lista
-    public void removerPessoa(Pessoa pessoa){
-        listaDePessoas.remove(pessoa);
+    public void removerPessoa(String nome){
+        Pessoa p = listaDePessoas.stream()
+                .filter(pegarNome -> pegarNome.getNome().equalsIgnoreCase(nome))
+                .findFirst()
+                .get();
+        listaDePessoas.remove(p);
     }
 
     //metodo busque uma pessoa pelo nome
@@ -31,6 +35,7 @@ public class Agenda{
                  listaDePessoas.stream()
                 .filter(porNome -> porNome.getNome().equalsIgnoreCase(nome))
                 .forEach(System.out::println);
+
     }
 
     //metodo mostrar todas pessoas em um arraylist

@@ -39,8 +39,8 @@ public class Main {
         agenda.armazenarPessoa(pessoa10);
 
 
-        //remover pessoa
-        agenda.removerPessoa(pessoa1);
+        //remover pessoa da lista colocando somente o nome
+        agenda.removerPessoa("Hugo");
 
         //Busque a pessoa pelo nome
         System.out.println("------Buscando pessoa pelo Nome----------"+"\n");
